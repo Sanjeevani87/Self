@@ -1,0 +1,47 @@
+import nltk
+from nltk.tokenize import sent_tokenize
+
+#Convert into sentance
+data="Bharat Story. A little boy who is forced to be responsible early on. Grows up with no regret of a non existent childhood. He in fact makes it his life goal to put his family before him. The film follows the journey of Bharat salman over the course of several decades as he navigates the ups and downs of life "
+sent=sent_tokenize(data)
+print(sent)
+
+#Convert into word
+#1.from nltk.tokenize import word_tokenize
+#word=word_tokenize(sent)
+#print(word)
+#2.way
+word=data.split(" ")
+print(word)
+
+#Give all the stop value
+from nltk.corpus import stopwords
+sw=set(stopwords.words('english'))
+print(sw)
+
+#stopwords clearing
+fw=[]
+for i in word:
+    if i not in sw:
+        fw.append(i)
+print(fw)
+
+#playing,played,play take orignal word
+from nltk.stem import PorterStemmer
+ps=PorterStemmer()
+for word in fw:
+    print(ps.stem(word))
+
+#Final words comparing with afin file
+p="affin file path"
+f=open(p,"rtt")
+ins=f.readlines()
+print(ins)
+score=[]
+for x in finalword:
+    for y in ins:
+        w=y.split("")
+        if x==w[0]:
+            score.append(w[1].split("'\n")[0])
+        score=[int[v]for v in score]
+        print(sum(score))
